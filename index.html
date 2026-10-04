@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KINETIC // The Neo-Brutalist AI Content Intelligence SaaS</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fontshare Typography CDN: Cabinet Grotesk & Satoshi -->
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons for Neo-Brutalist geometric iconography -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css"/>
+
+  <!-- Tailwind Configuration with Exact Neo-Brutalist Spec Tokens -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandYellow: '#ffe17c',
+            brandCharcoal: '#171e19',
+            brandSage: '#b7c6c2',
+            brandDarkGray: '#272727',
+            brandStarYellow: '#ffbc2e',
+            macRed: '#ff5f57',
+            macYellow: '#febc2e',
+            macGreen: '#28c840',
+          },
+          fontFamily: {
+            heading: ['"Cabinet Grotesk"', 'sans-serif'],
+            sans: ['"Satoshi"', 'sans-serif'],
+          },
+          borderWidth: {
+            '2': '2px',
+            '3': '3px',
+            '4': '4px',
+          },
+          boxShadow: {
+            'hard-sm': '2px 2px 0px 0px #000000',
+            'hard-md': '4px 4px 0px 0px #000000',
+            'hard-lg': '8px 8px 0px 0px #000000',
+            'hard-xl': '12px 12px 0px 0px #000000',
+            'hard-white-md': '4px 4px 0px 0px #ffffff',
+            'hard-white-lg': '8px 8px 0px 0px #ffffff',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Neo-Brutalist Dot Pattern on #ffe17c */
+    .bg-dot-pattern {
+      background-color: #ffe17c;
+      background-image: radial-gradient(rgba(0, 0, 0, 0.10) 2.5px, transparent 2.5px);
+      background-size: 32px 32px;
+    }
+
+    /* Outlined Stroke Keyword in Hero Headline */
+    .hero-stroked-text {
+      color: transparent;
+      -webkit-text-stroke: 2.5px #000000;
+      text-stroke: 2.5px #000000;
+    }
+
+    /* Neo-Brutalist Push Button Micro-Interactions */
+    .btn-push-primary {
+      background-color: #000000;
+      color: #ffffff;
+      border: 2px solid #000000;
+      box-shadow: 8px 8px 0px 0px #000000;
+      transition: transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .btn-push-primary:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0px 0px #000000;
+    }
+    .btn-push-primary:active {
+      transform: translate(8px, 8px);
+      box-shadow: 0px 0px 0px 0px #000000;
+    }
+
+    .btn-push-secondary {
+      background-color: #ffffff;
+      color: #000000;
+      border: 2px solid #000000;
+      box-shadow: 4px 4px 0px 0px #000000;
+      transition: transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .btn-push-secondary:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px 0px #000000;
+    }
+    .btn-push-secondary:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0px 0px #000000;
+    }
+
+    /* Asymmetric Testimonial Cards */
+    .asymmetric-card {
+      border-top-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      border-top-right-radius: 28px;
+      border-bottom-left-radius: 28px;
+    }
+
+    /* Infinite Marquee Keyframe */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marqueeScroll 24s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Card Hover Lift for Feature Grid */
+    .feature-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 7px 7px 0px 0px #000000;
+    }
+
+    /* Interactive Persona Hover */
+    .persona-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .persona-card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Custom Selection Styling */
+    ::selection {
+      background-color: #171e19;
+      color: #ffe17c;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-black bg-white antialiased selection:bg-brandCharcoal selection:text-brandYellow">
+
+  <header class="fixed top-0 left-0 right-0 h-20 bg-brandYellow border-b-2 border-black z-50 flex items-center px-4 sm:px-8">
+    <div class="max-w-7xl w-full mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group select-none">
+        <div class="w-10 h-10 bg-brandCharcoal border-2 border-black flex items-center justify-center shadow-hard-sm group-hover:bg-black transition-colors">
+          <i class="ph-bold ph-lightning text-brandYellow text-xl"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-2xl tracking-tighter uppercase leading-none text-black">KINETIC<span class="text-brandCharcoal">.AI</span></span>
+          <span class="text-[10px] font-sans font-bold tracking-widest uppercase text-black/70">Content OS 2.0</span>
+        </div>
+      </a>
+
+      <!-- Horizontal Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 font-sans font-bold text-sm">
+        <a href="#features" class="hover:underline underline-offset-4 decoration-2 decoration-black transition-all">Features</a>
+        <a href="#comparison" class="hover:underline underline-offset-4 decoration-2 decoration-black transition-all">Vs Traditional</a>
+        <a href="#workflow" class="hover:underline underline-offset-4 decoration-2 decoration-black transition-all">How It Works</a>
+        <a href="#personas" class="hover:underline underline-offset-4 decoration-2 decoration-black transition-all">Personas</a>
+        <a href="#testimonials" class="hover:underline underline-offset-4 decoration-2 decoration-black transition-all">Wall of Love</a>
+      </nav>
+
+      <!-- Desktop Header CTA & Mobile Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <button onclick="openTrialModal()" class="hidden sm:inline-flex btn-push-primary px-5 py-2.5 rounded-xl font-heading font-extrabold text-sm uppercase tracking-wider items-center gap-2">
+          <span>Start Free Trial</span>
+          <i class="ph-bold ph-arrow-up-right text-base text-brandYellow"></i>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" onclick="toggleMobileNav()" class="md:hidden w-10 h-10 bg-white border-2 border-black flex items-center justify-center shadow-hard-sm">
+          <i class="ph-bold ph-list text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Navigation -->
+  <div id="mobileDrawer" class="fixed inset-0 top-20 bg-brandYellow border-b-2 border-black z-40 p-6 flex flex-col justify-between hidden md:hidden shadow-hard-lg">
+    <div class="flex flex-col gap-4 font-heading font-bold text-xl uppercase">
+      <a href="#features" onclick="toggleMobileNav()" class="p-3 bg-white border-2 border-black shadow-hard-sm">01 // Features</a>
+      <a href="#comparison" onclick="toggleMobileNav()" class="p-3 bg-white border-2 border-black shadow-hard-sm">02 // Comparison</a>
+      <a href="#workflow" onclick="toggleMobileNav()" class="p-3 bg-white border-2 border-black shadow-hard-sm">03 // How It Works</a>
+      <a href="#personas" onclick="toggleMobileNav()" class="p-3 bg-white border-2 border-black shadow-hard-sm">04 // Personas</a>
+      <a href="#testimonials" onclick="toggleMobileNav()" class="p-3 bg-white border-2 border-black shadow-hard-sm">05 // Wall of Love</a>
+    </div>
+    <div class="pt-6 border-t-2 border-black">
+      <button onclick="openTrialModal(); toggleMobileNav();" class="w-full btn-push-primary py-4 rounded-xl font-heading font-extrabold text-base uppercase text-center flex items-center justify-center gap-2">
+        <span>Start Free 14-Day Trial</span>
+        <i class="ph-bold ph-arrow-right text-brandYellow"></i>
+      </button>
+    </div>
+  </div>
+
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-dot-pattern border-b-2 border-black overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Column: Copy, Pill Badge & CTA -->
+        <div class="lg:col-span-6 flex flex-col items-start">
+          
+          <!-- Pill Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-white border-2 border-black rounded-full shadow-hard-md mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-brandCharcoal animate-pulse"></span>
+            <span class="font-heading font-bold text-xs uppercase tracking-wider text-black">NEW: AI Content Assistant 2.0</span>
+          </div>
+
+          <!-- Main Headline with Stroked Keyword -->
+          <h1 class="font-heading font-extrabold text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-black tracking-tighter leading-[0.95] mb-6">
+            CREATE <span class="hero-stroked-text">VIRAL</span> CONTENT AT LIGHTSPEED.
+          </h1>
+
+          <!-- Subtitle in Satoshi 500 -->
+          <p class="font-sans font-medium text-lg sm:text-xl text-black/85 max-w-xl leading-relaxed mb-8">
+            The Neo-Brutalist SaaS engine for high-velocity growth teams. Generate SEO clusters, multi-channel social blitzes, and conversion copy in seconds with zero fluff.
+          </p>
+
+          <!-- CTA Push Button Group -->
+          <div class="flex flex-wrap items-center gap-4 sm:gap-5 w-full sm:w-auto mb-10">
+            <button onclick="openTrialModal()" class="btn-push-primary px-8 py-4 rounded-xl font-heading font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-3 w-full sm:w-auto">
+              <span>Start Free Trial</span>
+              <i class="ph-bold ph-rocket-launch text-xl text-brandYellow"></i>
+            </button>
+            <a href="#features" class="btn-push-secondary px-8 py-4 rounded-xl font-heading font-bold text-base uppercase tracking-wider flex items-center justify-center gap-2 w-full sm:w-auto">
+              <i class="ph-bold ph-play-circle text-xl"></i>
+              <span>Watch Live Demo</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges & Metrics -->
+          <div class="flex flex-wrap items-center gap-6 pt-4 border-t-2 border-black/20 w-full text-xs font-bold uppercase tracking-wider text-black/80">
+            <div class="flex items-center gap-2">
+              <i class="ph-bold ph-check-circle text-base text-black"></i>
+              <span>No Credit Card Required</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="ph-bold ph-star text-base text-black"></i>
+              <span>4.9/5 by 2,400+ Creators</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="ph-bold ph-shield-check text-base text-black"></i>
+              <span>SOC2 Type II Certified</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Browser Mockup Container -->
+        <div class="lg:col-span-6 w-full">
+          <div class="relative">
+            
+            <!-- Hard Shadow Decorative Background Accent -->
+            <div class="hidden sm:block absolute -top-4 -right-4 w-full h-full bg-brandCharcoal border-2 border-black rounded-2xl pointer-events-none"></div>
+
+            <!-- Browser Mockup Window -->
+            <div class="relative bg-white border-2 border-black rounded-2xl shadow-hard-xl overflow-hidden z-10">
+              
+              <!-- Window Chrome Bar -->
+              <div class="bg-brandCharcoal border-b-2 border-black px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3.5 h-3.5 rounded-full bg-macRed border border-black"></div>
+                  <div class="w-3.5 h-3.5 rounded-full bg-macYellow border border-black"></div>
+                  <div class="w-3.5 h-3.5 rounded-full bg-macGreen border border-black"></div>
+                </div>
+                <div class="bg-brandDarkGray px-3 py-1 rounded border border-black/40 text-[11px] font-mono text-white/80 flex items-center gap-2">
+                  <i class="ph-bold ph-lock text-brandYellow text-xs"></i>
+                  <span>app.kinetic.ai/dashboard</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-white/50 text-xs">
+                  <i class="ph-bold ph-minus"></i>
+                  <i class="ph-bold ph-square"></i>
+                  <i class="ph-bold ph-x"></i>
+                </div>
+              </div>
+
+              <!-- Dashboard Body Interior -->
+              <div class="p-5 sm:p-6 bg-white space-y-5">
+                
+                <!-- Dashboard Sub-Header -->
+                <div class="flex items-center justify-between pb-4 border-b-2 border-black">
+                  <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-black/60">Workspace // Production</span>
+                    <h4 class="font-heading font-extrabold text-xl text-black">Q4 Campaign Velocity</h4>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-1 bg-brandSage text-brandCharcoal border-2 border-black font-heading font-extrabold text-xs uppercase rounded">
+                      Live Engine
+                    </span>
+                    <button id="toggleDataBtn" onclick="toggleDashboardMetric()" class="px-2.5 py-1 bg-brandYellow border-2 border-black font-bold text-xs uppercase shadow-hard-sm hover:translate-x-0.5 transition-transform">
+                      Simulate Surge
+                    </button>
+                  </div>
+                </div>
+
+                <!-- KPI Bento Grid Inside Browser Mockup -->
+                <div class="grid grid-cols-3 gap-3">
+                  <!-- Metric 1: Sage Accent Panel -->
+                  <div class="bg-brandSage border-2 border-black p-3 rounded-lg shadow-hard-sm">
+                    <span class="text-[10px] font-bold uppercase text-black/70 block">Generated Copy</span>
+                    <span id="metricCopy" class="font-heading font-extrabold text-xl sm:text-2xl text-black block mt-0.5">142,890</span>
+                    <span class="text-[10px] font-bold text-black flex items-center gap-0.5 mt-1">
+                      <i class="ph-bold ph-arrow-up-right"></i> +38.4%
+                    </span>
+                  </div>
+
+                  <!-- Metric 2: Yellow Accent Panel -->
+                  <div class="bg-brandYellow border-2 border-black p-3 rounded-lg shadow-hard-sm">
+                    <span class="text-[10px] font-bold uppercase text-black/70 block">Saved Hours</span>
+                    <span id="metricHours" class="font-heading font-extrabold text-xl sm:text-2xl text-black block mt-0.5">1,240 hrs</span>
+                    <span class="text-[10px] font-bold text-black flex items-center gap-0.5 mt-1">
+                      <i class="ph-bold ph-trend-up"></i> 8.6x faster
+                    </span>
+                  </div>
+
+                  <!-- Metric 3: Charcoal Accent Panel with White Text -->
+                  <div class="bg-brandCharcoal text-white border-2 border-black p-3 rounded-lg shadow-hard-sm">
+                    <span class="text-[10px] font-bold uppercase text-brandSage block">Conversion Rate</span>
+                    <span id="metricConv" class="font-heading font-extrabold text-xl sm:text-2xl text-brandYellow block mt-0.5">8.94%</span>
+                    <span class="text-[10px] font-bold text-brandSage flex items-center gap-0.5 mt-1">
+                      <i class="ph-bold ph-lightning"></i> Top tier
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Live Revenue Velocity Chart Simulation -->
+                <div class="bg-[#fafafa] border-2 border-black p-4 rounded-xl shadow-hard-sm">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center gap-2">
+                      <span class="w-3 h-3 bg-black rounded-xs"></span>
+                      <span class="font-heading font-bold text-xs uppercase tracking-wider text-black">Weekly Output Volume (Thousands)</span>
+                    </div>
+                    <span class="text-[11px] font-mono font-bold text-black bg-brandYellow px-2 py-0.5 border border-black">Target: Met</span>
+                  </div>
+
+                  <!-- Bar Visualization with Brutalist Grid Lines -->
+                  <div class="h-28 flex items-end gap-2 sm:gap-3 pt-4 border-b-2 border-black">
+                    <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+                      <div class="w-full bg-brandSage border-2 border-black" style="height: 45%;"></div>
+                      <span class="text-[9px] font-bold">MON</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+                      <div class="w-full bg-brandSage border-2 border-black" style="height: 60%;"></div>
+                      <span class="text-[9px] font-bold">TUE</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+                      <div class="w-full bg-brandSage border-2 border-black" style="height: 52%;"></div>
+                      <span class="text-[9px] font-bold">WED</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+                      <div class="w-full bg-brandYellow border-2 border-black" style="height: 82%;"></div>
+                      <span class="text-[9px] font-bold">THU</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+                      <div class="w-full bg-brandYellow border-2 border-black" style="height: 74%;"></div>
+                      <span class="text-[9px] font-bold">FRI</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+                      <div id="surgeBar" class="w-full bg-brandCharcoal border-2 border-black transition-all duration-500" style="height: 96%;"></div>
+                      <span class="text-[9px] font-bold">SAT</span>
+                    </div>
+                    <div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+                      <div class="w-full bg-brandCharcoal border-2 border-black" style="height: 88%;"></div>
+                      <span class="text-[9px] font-bold">SUN</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Terminal Prompt Generator Mini-Bar -->
+                <div class="bg-brandCharcoal text-white border-2 border-black p-3 rounded-lg flex items-center justify-between text-xs font-mono">
+                  <div class="flex items-center gap-2 truncate">
+                    <span class="text-brandYellow font-bold">&gt;</span>
+                    <span id="promptText" class="truncate text-brandSage">prompt: "generate 10 b2b hooks on devtool scale"</span>
+                  </div>
+                  <span class="bg-brandSage text-brandCharcoal font-bold px-2 py-0.5 rounded text-[10px] uppercase border border-black shrink-0">
+                    Done (0.18s)
+                  </span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bg-brandCharcoal border-b-2 border-black py-4 overflow-hidden select-none">
+    <div class="animate-marquee whitespace-nowrap flex items-center">
+      <!-- Repeat marquee group twice for seamless loop -->
+      <div class="flex items-center space-x-12 sm:space-x-16 text-brandSage/60 font-heading font-extrabold text-2xl sm:text-3xl tracking-tighter uppercase px-6">
+        <span>ACME CORP</span>
+        <span class="text-brandYellow">★</span>
+        <span>GLOBEX SYSTEM</span>
+        <span class="text-brandYellow">★</span>
+        <span>INITECH ENTERPRISES</span>
+        <span class="text-brandYellow">★</span>
+        <span>UMBRELLA LABS</span>
+        <span class="text-brandYellow">★</span>
+        <span>STARK INDUSTRIES</span>
+        <span class="text-brandYellow">★</span>
+        <span>SOYLENT MEDIA</span>
+        <span class="text-brandYellow">★</span>
+        <span>HOOLI VENTURES</span>
+        <span class="text-brandYellow">★</span>
+        <span>MASSIVE DYNAMIC</span>
+        <span class="text-brandYellow">★</span>
+      </div>
+      <div class="flex items-center space-x-12 sm:space-x-16 text-brandSage/60 font-heading font-extrabold text-2xl sm:text-3xl tracking-tighter uppercase px-6">
+        <span>ACME CORP</span>
+        <span class="text-brandYellow">★</span>
+        <span>GLOBEX SYSTEM</span>
+        <span class="text-brandYellow">★</span>
+        <span>INITECH ENTERPRISES</span>
+        <span class="text-brandYellow">★</span>
+        <span>UMBRELLA LABS</span>
+        <span class="text-brandYellow">★</span>
+        <span>STARK INDUSTRIES</span>
+        <span class="text-brandYellow">★</span>
+        <span>SOYLENT MEDIA</span>
+        <span class="text-brandYellow">★</span>
+        <span>HOOLI VENTURES</span>
+        <span class="text-brandYellow">★</span>
+        <span>MASSIVE DYNAMIC</span>
+        <span class="text-brandYellow">★</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="comparison" class="py-24 bg-white border-b-2 border-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-block px-3 py-1 bg-brandSage text-brandCharcoal border-2 border-black font-heading font-extrabold text-xs uppercase tracking-wider mb-3">
+          The Breakdown
+        </div>
+        <h2 class="font-heading font-extrabold text-4xl sm:text-5xl text-black tracking-tighter leading-tight mb-4">
+          OLD CHAOS VS. KINETIC VELOCITY.
+        </h2>
+        <p class="font-sans font-medium text-base sm:text-lg text-black/75">
+          Stop burning 40 hours a week across 7 disconnected AI tools. Here is why the modern creator chooses Brutalist efficiency over bloated software.
+        </p>
+      </div>
+
+      <!-- Comparison Dual Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        
+        <!-- Card A (The Problem): #f4f4f5, 2px dashed border, 70% opacity -->
+        <div class="bg-[#f4f4f5] opacity-75 border-2 border-dashed border-gray-500 rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-6 border-b-2 border-dashed border-gray-400 mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-red-100 border-2 border-red-500 flex items-center justify-center text-red-600 font-black">
+                  <i class="ph-bold ph-x text-xl"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-gray-500 uppercase tracking-widest block">Legacy Way</span>
+                  <h3 class="font-heading font-extrabold text-2xl text-gray-800">The Fragmented Mess</h3>
+                </div>
+              </div>
+              <span class="text-xs font-mono font-bold px-2.5 py-1 bg-gray-200 border border-gray-400 text-gray-700 rounded">
+                Slow & Wasteful
+              </span>
+            </div>
+
+            <!-- Problem List -->
+            <ul class="space-y-5 text-sm sm:text-base font-sans font-medium text-gray-700">
+              <li class="flex items-start gap-3">
+                <i class="ph-bold ph-x-circle text-red-500 text-xl shrink-0 mt-0.5"></i>
+                <span>Copy-pasting generic ChatGPT outputs into 4 different Google Docs.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ph-bold ph-x-circle text-red-500 text-xl shrink-0 mt-0.5"></i>
+                <span>Robotic hallucinations that destroy your brand reputation and voice.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ph-bold ph-x-circle text-red-500 text-xl shrink-0 mt-0.5"></i>
+                <span>Paying $200+/mo across five fragmented subscriptions that don't talk to each other.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ph-bold ph-x-circle text-red-500 text-xl shrink-0 mt-0.5"></i>
+                <span>Zero real-time performance tracking or automated SEO ranking feedback loops.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-gray-300 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-gray-500">
+            <span>Result: Founder Burnout</span>
+            <span class="text-red-500">Avg. 3 weeks to publish</span>
+          </div>
+        </div>
+
+        <!-- Card B (The Solution): #ffe17c, 2px solid black border, 8px hard shadow -->
+        <div class="bg-brandYellow border-2 border-black rounded-3xl p-8 sm:p-10 shadow-hard-lg flex flex-col justify-between relative overflow-hidden">
+          
+          <!-- Decorative Top Corner Badge -->
+          <div class="absolute top-0 right-0 bg-brandCharcoal text-brandYellow font-heading font-extrabold text-xs uppercase px-4 py-1.5 border-b-2 border-l-2 border-black">
+            Recommended
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between pb-6 border-b-2 border-black mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-brandCharcoal text-brandYellow border-2 border-black flex items-center justify-center font-black">
+                  <i class="ph-bold ph-check text-xl"></i>
+                </div>
+                <div>
+                  <span class="text-xs font-bold text-black/70 uppercase tracking-widest block">The KINETIC Standard</span>
+                  <h3 class="font-heading font-extrabold text-2xl text-black">Unified Content OS</h3>
+                </div>
+              </div>
+              <span class="text-xs font-mono font-bold px-2.5 py-1 bg-white border-2 border-black text-black rounded shadow-hard-sm">
+                10x Velocity
+              </span>
+            </div>
+
+            <!-- Solution List -->
+            <ul class="space-y-5 text-sm sm:text-base font-sans font-bold text-black">
+              <li class="flex items-start gap-3">
+                <i class="ph-bold ph-check-circle text-black text-xl shrink-0 mt-0.5"></i>
+                <span>Trained specifically on your historical top-performing brand tone & style guides.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ph-bold ph-check-circle text-black text-xl shrink-0 mt-0.5"></i>
+                <span>One-click multi-format cascading: Blog post → 10 LinkedIn hooks → Twitter thread → Newsletter.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ph-bold ph-check-circle text-black text-xl shrink-0 mt-0.5"></i>
+                <span>Automated real-time SERP keyword density scoring and internal link insertion.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ph-bold ph-check-circle text-black text-xl shrink-0 mt-0.5"></i>
+                <span>Built-in live performance analytics and automated variant testing on autopilot.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t-2 border-black flex items-center justify-between text-xs font-bold uppercase tracking-wider text-black">
+            <span>Result: Unfair Advantage</span>
+            <span class="bg-brandCharcoal text-white px-2 py-0.5 rounded font-mono">Publish in 18 minutes</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="features" class="py-24 bg-dot-pattern border-b-2 border-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div>
+          <div class="inline-block px-3 py-1 bg-white text-black border-2 border-black font-heading font-extrabold text-xs uppercase tracking-wider mb-3 shadow-hard-sm">
+            Core Modules
+          </div>
+          <h2 class="font-heading font-extrabold text-4xl sm:text-5xl text-black tracking-tighter leading-tight">
+            ENGINEERED WITHOUT COMPROMISE.
+          </h2>
+        </div>
+        <p class="font-sans font-medium text-black/80 max-w-md text-base leading-relaxed">
+          Six battle-tested modules designed for teams who prioritize relentless execution over corporate clutter.
+        </p>
+      </div>
+
+      <!-- 3-Column Feature Grid of White Cards with 2px border & 4px hard shadow -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="feature-card bg-white border-2 border-black p-8 rounded-2xl shadow-hard-md flex flex-col justify-between group">
+          <div>
+            <div class="w-16 h-16 bg-brandSage group-hover:bg-brandYellow border-2 border-black rounded-xl flex items-center justify-center text-black mb-6 transition-colors shadow-hard-sm">
+              <i class="ph-bold ph-cpu text-3xl"></i>
+            </div>
+            <h3 class="font-heading font-extrabold text-2xl text-black mb-3 leading-snug">
+              Neural Tone Memory
+            </h3>
+            <p class="font-sans font-medium text-black/75 text-sm sm:text-base leading-relaxed">
+              Upload your best tweets, essays, and landing pages. KINETIC extracts your unique cadence, vocabulary, and rhythm so copy never sounds like a generic robot.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t-2 border-black flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+            <span>Adaptive AI</span>
+            <i class="ph-bold ph-arrow-right text-base group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="feature-card bg-white border-2 border-black p-8 rounded-2xl shadow-hard-md flex flex-col justify-between group">
+          <div>
+            <div class="w-16 h-16 bg-brandSage group-hover:bg-brandYellow border-2 border-black rounded-xl flex items-center justify-center text-black mb-6 transition-colors shadow-hard-sm">
+              <i class="ph-bold ph-tree-structure text-3xl"></i>
+            </div>
+            <h3 class="font-heading font-extrabold text-2xl text-black mb-3 leading-snug">
+              Multi-Channel Waterfall
+            </h3>
+            <p class="font-sans font-medium text-black/75 text-sm sm:text-base leading-relaxed">
+              One master insight transforms into 12 formatted assets in one click: newsletters, slide decks, Twitter threads, LinkedIn thought-leadership, and video scripts.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t-2 border-black flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+            <span>Cascading Engine</span>
+            <i class="ph-bold ph-arrow-right text-base group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="feature-card bg-white border-2 border-black p-8 rounded-2xl shadow-hard-md flex flex-col justify-between group">
+          <div>
+            <div class="w-16 h-16 bg-brandSage group-hover:bg-brandYellow border-2 border-black rounded-xl flex items-center justify-center text-black mb-6 transition-colors shadow-hard-sm">
+              <i class="ph-bold ph-chart-line-up text-3xl"></i>
+            </div>
+            <h3 class="font-heading font-extrabold text-2xl text-black mb-3 leading-snug">
+              Real-Time SERP Radar
+            </h3>
+            <p class="font-sans font-medium text-black/75 text-sm sm:text-base leading-relaxed">
+              Live algorithmic competitor analysis. Know exactly which semantic headers, keyword frequencies, and questions you need to rank on Google Page 1.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t-2 border-black flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+            <span>Live Scraping</span>
+            <i class="ph-bold ph-arrow-right text-base group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="feature-card bg-white border-2 border-black p-8 rounded-2xl shadow-hard-md flex flex-col justify-between group">
+          <div>
+            <div class="w-16 h-16 bg-brandSage group-hover:bg-brandYellow border-2 border-black rounded-xl flex items-center justify-center text-black mb-6 transition-colors shadow-hard-sm">
+              <i class="ph-bold ph-users-three text-3xl"></i>
+            </div>
+            <h3 class="font-heading font-extrabold text-2xl text-black mb-3 leading-snug">
+              Multi-Seat Collaborative Canvas
+            </h3>
+            <p class="font-sans font-medium text-black/75 text-sm sm:text-base leading-relaxed">
+              Live multiplayer editing with instant version rollback, role-based approval queues, and inline stakeholder comment threads.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t-2 border-black flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+            <span>Multiplayer</span>
+            <i class="ph-bold ph-arrow-right text-base group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="feature-card bg-white border-2 border-black p-8 rounded-2xl shadow-hard-md flex flex-col justify-between group">
+          <div>
+            <div class="w-16 h-16 bg-brandSage group-hover:bg-brandYellow border-2 border-black rounded-xl flex items-center justify-center text-black mb-6 transition-colors shadow-hard-sm">
+              <i class="ph-bold ph-shield-check text-3xl"></i>
+            </div>
+            <h3 class="font-heading font-extrabold text-2xl text-black mb-3 leading-snug">
+              Strict Zero-Data Training
+            </h3>
+            <p class="font-sans font-medium text-black/75 text-sm sm:text-base leading-relaxed">
+              Your proprietary company knowledge, customer testimonials, and internal drafts are strictly isolated. We never train public models on your private IP.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t-2 border-black flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+            <span>Enterprise Privacy</span>
+            <i class="ph-bold ph-arrow-right text-base group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="feature-card bg-white border-2 border-black p-8 rounded-2xl shadow-hard-md flex flex-col justify-between group">
+          <div>
+            <div class="w-16 h-16 bg-brandSage group-hover:bg-brandYellow border-2 border-black rounded-xl flex items-center justify-center text-black mb-6 transition-colors shadow-hard-sm">
+              <i class="ph-bold ph-plugs-connected text-3xl"></i>
+            </div>
+            <h3 class="font-heading font-extrabold text-2xl text-black mb-3 leading-snug">
+              Headless Webhook Sync
+            </h3>
+            <p class="font-sans font-medium text-black/75 text-sm sm:text-base leading-relaxed">
+              Auto-deploy straight to Webflow, Ghost, WordPress, Notion, Buffer, or your custom Next.js API endpoint with customized metadata schemas.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t-2 border-black flex items-center justify-between text-xs font-bold uppercase tracking-wider">
+            <span>Direct Webhooks</span>
+            <i class="ph-bold ph-arrow-right text-base group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="workflow" class="py-24 bg-brandCharcoal text-white border-b-2 border-black relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <div class="inline-block px-3 py-1 bg-brandYellow text-brandCharcoal border-2 border-black font-heading font-extrabold text-xs uppercase tracking-wider mb-3">
+          Architecture & Flow
+        </div>
+        <h2 class="font-heading font-extrabold text-4xl sm:text-5xl text-white tracking-tighter leading-tight mb-4">
+          FROM RAW THOUGHT TO VIRAL ASSET IN 3 STEPS.
+        </h2>
+        <p class="font-sans font-medium text-brandSage text-base sm:text-lg">
+          No complex prompt engineering diplomas needed. Built for operators who demand intuitive, repeatable speed.
+        </p>
+      </div>
+
+      <!-- 3-Step Horizontal Flow with Connector Line -->
+      <div class="relative">
+        
+        <!-- Horizontal Connector Line (#272727) -->
+        <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-1 bg-brandDarkGray border-t-2 border-b-2 border-black z-0"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative z-10">
+          
+          <!-- Step 1: Sage Accent Border -->
+          <div class="flex flex-col items-center text-center group">
+            <div class="w-24 h-24 rounded-full bg-brandDarkGray border-4 border-brandSage flex items-center justify-center text-brandSage font-heading font-extrabold text-3xl mb-6 shadow-hard-white-md group-hover:scale-105 transition-transform">
+              01
+            </div>
+            <span class="text-xs font-mono font-bold uppercase tracking-widest text-brandSage mb-2">Phase One</span>
+            <h3 class="font-heading font-extrabold text-2xl text-white mb-3">Feed the Neural Core</h3>
+            <p class="font-sans font-medium text-brandSage/80 text-sm leading-relaxed max-w-xs">
+              Link your past URLs, upload your PDF whitepapers, or drop a 2-minute voice note. The engine indexes your core thesis instantly.
+            </p>
+          </div>
+
+          <!-- Step 2: Yellow Accent Border -->
+          <div class="flex flex-col items-center text-center group">
+            <div class="w-24 h-24 rounded-full bg-brandDarkGray border-4 border-brandYellow flex items-center justify-center text-brandYellow font-heading font-extrabold text-3xl mb-6 shadow-hard-white-md group-hover:scale-105 transition-transform">
+              02
+            </div>
+            <span class="text-xs font-mono font-bold uppercase tracking-widest text-brandYellow mb-2">Phase Two</span>
+            <h3 class="font-heading font-extrabold text-2xl text-white mb-3">Synthesize & Branch</h3>
+            <p class="font-sans font-medium text-brandSage/80 text-sm leading-relaxed max-w-xs">
+              Our multi-agent consensus checks every draft for clarity, hook strength, readability grade, and SEO keyword saturation.
+            </p>
+          </div>
+
+          <!-- Step 3: White Accent Border -->
+          <div class="flex flex-col items-center text-center group">
+            <div class="w-24 h-24 rounded-full bg-brandDarkGray border-4 border-white flex items-center justify-center text-white font-heading font-extrabold text-3xl mb-6 shadow-hard-white-md group-hover:scale-105 transition-transform">
+              03
+            </div>
+            <span class="text-xs font-mono font-bold uppercase tracking-widest text-white mb-2">Phase Three</span>
+            <h3 class="font-heading font-extrabold text-2xl text-white mb-3">Broadcast Across Channels</h3>
+            <p class="font-sans font-medium text-brandSage/80 text-sm leading-relaxed max-w-xs">
+              Approve variations in the high-density editor and dispatch directly to your publication pipeline with zero manual formatting friction.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Quick Interactive Terminal Preview in Dark Mode -->
+      <div class="mt-16 max-w-2xl mx-auto bg-brandDarkGray border-2 border-black p-4 rounded-xl shadow-hard-md flex items-center justify-between text-xs font-mono">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-brandYellow"></span>
+          <span class="text-brandSage">Average processing time per 3,000 words:</span>
+          <span class="text-brandYellow font-bold">14.2 seconds</span>
+        </div>
+        <span class="text-[10px] uppercase font-bold text-white/60 bg-black px-2 py-0.5 border border-white/20">Ready for API call</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="personas" class="py-24 bg-white border-b-2 border-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-block px-3 py-1 bg-brandYellow text-black border-2 border-black font-heading font-extrabold text-xs uppercase tracking-wider mb-3 shadow-hard-sm">
+          Tailored Playbooks
+        </div>
+        <h2 class="font-heading font-extrabold text-4xl sm:text-5xl text-black tracking-tighter leading-tight mb-4">
+          BUILT FOR SPEED ARCHITECTS.
+        </h2>
+        <p class="font-sans font-medium text-black/75 text-base sm:text-lg">
+          Whether you are a solo bootstrapped builder or a 50-person venture team, KINETIC adapts to your exact output cadence.
+        </p>
+      </div>
+
+      <!-- 3-Column Bento Style Persona Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Sage (#b7c6c2), 2px border, 4px shadow -->
+        <div class="persona-card bg-brandSage border-2 border-black rounded-3xl p-8 shadow-hard-md flex flex-col justify-between">
+          <div>
+            <!-- Pill Badge -->
+            <div class="inline-flex items-center px-3.5 py-1 bg-white border-2 border-black rounded-full font-heading font-extrabold text-xs uppercase tracking-wider mb-6 shadow-hard-sm">
+              Solo Founders
+            </div>
+            
+            <h3 class="font-heading font-extrabold text-3xl text-black mb-3">
+              Ship Content While You Code
+            </h3>
+            <p class="font-sans font-medium text-black/85 text-sm sm:text-base leading-relaxed mb-6">
+              Turn your GitHub changelogs, Discord release notes, and commit history into compelling product marketing threads and launch campaigns without hiring an agency.
+            </p>
+
+            <ul class="space-y-3 font-sans font-bold text-xs uppercase tracking-wide text-black/90">
+              <li class="flex items-center gap-2">
+                <i class="ph-bold ph-check text-base"></i> Automated feature announcements
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ph-bold ph-check text-base"></i> Hacker News & Reddit hooks
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ph-bold ph-check text-base"></i> Product Hunt launch checklists
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t-2 border-black flex items-center justify-between">
+            <span class="text-xs font-mono font-bold uppercase">Time to Setup: 3 mins</span>
+            <i class="ph-bold ph-rocket text-xl text-black"></i>
+          </div>
+        </div>
+
+        <!-- Card 2: Yellow (#ffe17c) with 8px hard shadow -->
+        <div class="persona-card bg-brandYellow border-2 border-black rounded-3xl p-8 shadow-hard-lg flex flex-col justify-between relative">
+          <!-- Featured Badge -->
+          <div class="absolute -top-3.5 right-6 bg-brandCharcoal text-brandYellow border-2 border-black font-heading font-extrabold text-[10px] uppercase px-3 py-1 rounded shadow-hard-sm">
+            Most Popular
+          </div>
+
+          <div>
+            <!-- Pill Badge -->
+            <div class="inline-flex items-center px-3.5 py-1 bg-white border-2 border-black rounded-full font-heading font-extrabold text-xs uppercase tracking-wider mb-6 shadow-hard-sm">
+              Growth Marketers
+            </div>
+            
+            <h3 class="font-heading font-extrabold text-3xl text-black mb-3">
+              Dominate Organic Search
+            </h3>
+            <p class="font-sans font-medium text-black/85 text-sm sm:text-base leading-relaxed mb-6">
+              Generate 50-article programmatic topical clusters targeting high-intent buyer queries. Maximize search impressions with data-backed semantic hierarchy.
+            </p>
+
+            <ul class="space-y-3 font-sans font-bold text-xs uppercase tracking-wide text-black">
+              <li class="flex items-center gap-2">
+                <i class="ph-bold ph-check text-base"></i> 100% human-grade SERP density
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ph-bold ph-check text-base"></i> Dynamic meta-tags & FAQ schemas
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ph-bold ph-check text-base"></i> Automated internal link mapping
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t-2 border-black flex items-center justify-between">
+            <span class="text-xs font-mono font-bold uppercase">Impact: +340% Impressions</span>
+            <i class="ph-bold ph-lightning text-xl text-black"></i>
+          </div>
+        </div>
+
+        <!-- Card 3: Dark Charcoal (#272727) with white text, 2px border, 4px shadow -->
+        <div class="persona-card bg-brandDarkGray text-white border-2 border-black rounded-3xl p-8 shadow-hard-md flex flex-col justify-between">
+          <div>
+            <!-- Pill Badge -->
+            <div class="inline-flex items-center px-3.5 py-1 bg-white text-black border-2 border-black rounded-full font-heading font-extrabold text-xs uppercase tracking-wider mb-6 shadow-hard-sm">
+              Enterprise Teams
+            </div>
+            
+            <h3 class="font-heading font-extrabold text-3xl text-white mb-3">
+              Enforce Brand Governance
+            </h3>
+            <p class="font-sans font-medium text-brandSage text-sm sm:text-base leading-relaxed mb-6">
+              Empower 40+ regional contributors while ensuring strict compliance, tone guidelines, legal disclaimer guardrails, and centralized SSO access.
+            </p>
+
+            <ul class="space-y-3 font-sans font-bold text-xs uppercase tracking-wide text-brandSage">
+              <li class="flex items-center gap-2">
+                <i class="ph-bold ph-check text-base text-brandYellow"></i> Custom SAML/SSO & audit logs
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ph-bold ph-check text-base text-brandYellow"></i> Automated trademark check
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ph-bold ph-check text-base text-brandYellow"></i> Dedicated Slack channel & SLA
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t-2 border-black/40 flex items-center justify-between text-brandSage">
+            <span class="text-xs font-mono font-bold uppercase">Security: SOC2 Certified</span>
+            <i class="ph-bold ph-shield-check text-xl text-brandYellow"></i>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="testimonials" class="py-24 bg-brandSage border-b-2 border-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div>
+          <div class="inline-block px-3 py-1 bg-brandCharcoal text-brandYellow border-2 border-black font-heading font-extrabold text-xs uppercase tracking-wider mb-3">
+            Real Proof
+          </div>
+          <h2 class="font-heading font-extrabold text-4xl sm:text-5xl text-black tracking-tighter leading-tight">
+            LOVED BY SERIOUS OPERATORS.
+          </h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="flex text-brandStarYellow text-2xl">
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+          </div>
+          <span class="font-heading font-extrabold text-lg text-black">4.9/5 Rating (2,400+ reviews)</span>
+        </div>
+      </div>
+
+      <!-- Grid of 3 White Asymmetric Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Testimonial 1 -->
+        <div class="asymmetric-card bg-white border-2 border-black p-8 shadow-hard-md flex flex-col justify-between">
+          <div>
+            <!-- Star Rating in #ffbc2e -->
+            <div class="flex text-brandStarYellow text-lg mb-4">
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+            </div>
+            
+            <p class="font-sans font-medium text-black text-base sm:text-lg leading-relaxed mb-6">
+              "We went from publishing one mediocre technical blog post every ten days to five authoritative deep-dives every single week. Our organic MRR jumped 42% in our very first quarter."
+            </p>
+          </div>
+
+          <div class="pt-6 border-t-2 border-black flex items-center gap-3.5">
+            <div class="w-12 h-12 bg-brandYellow border-2 border-black rounded-full flex items-center justify-center font-heading font-extrabold text-black text-lg">
+              DH
+            </div>
+            <div>
+              <h4 class="font-heading font-extrabold text-base text-black leading-none">David Hansen</h4>
+              <span class="text-xs font-sans font-bold text-black/60 uppercase">VP Marketing // Synthetix Labs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="asymmetric-card bg-white border-2 border-black p-8 shadow-hard-md flex flex-col justify-between">
+          <div>
+            <!-- Star Rating in #ffbc2e -->
+            <div class="flex text-brandStarYellow text-lg mb-4">
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+            </div>
+            
+            <p class="font-sans font-medium text-black text-base sm:text-lg leading-relaxed mb-6">
+              "Most AI tools churn out generic fluffy garbage that ruins your brand reputation. KINETIC actually sounds like me. The tone memory feature alone is worth 10x our subscription."
+            </p>
+          </div>
+
+          <div class="pt-6 border-t-2 border-black flex items-center gap-3.5">
+            <div class="w-12 h-12 bg-brandCharcoal text-brandYellow border-2 border-black rounded-full flex items-center justify-center font-heading font-extrabold text-lg">
+              EC
+            </div>
+            <div>
+              <h4 class="font-heading font-extrabold text-base text-black leading-none">Elena Chen</h4>
+              <span class="text-xs font-sans font-bold text-black/60 uppercase">Founder // Hypergrowth Media</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="asymmetric-card bg-white border-2 border-black p-8 shadow-hard-md flex flex-col justify-between">
+          <div>
+            <!-- Star Rating in #ffbc2e -->
+            <div class="flex text-brandStarYellow text-lg mb-4">
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+              <i class="ph-fill ph-star"></i>
+            </div>
+            
+            <p class="font-sans font-medium text-black text-base sm:text-lg leading-relaxed mb-6">
+              "The waterfall feature is unmatched. I drop in an unstructured raw audio transcript from our podcast and within 30 seconds I have a high-converting newsletter and 8 LinkedIn hooks."
+            </p>
+          </div>
+
+          <div class="pt-6 border-t-2 border-black flex items-center gap-3.5">
+            <div class="w-12 h-12 bg-brandSage border-2 border-black rounded-full flex items-center justify-center font-heading font-extrabold text-black text-lg">
+              MR
+            </div>
+            <div>
+              <h4 class="font-heading font-extrabold text-base text-black leading-none">Marcus Ramos</h4>
+              <span class="text-xs font-sans font-bold text-black/60 uppercase">Head of Growth // Orbit Protocol</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="py-24 bg-dot-pattern border-b-2 border-black">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 text-center">
+      
+      <!-- Pill Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white border-2 border-black rounded-full font-heading font-extrabold text-xs uppercase tracking-wider mb-6 shadow-hard-sm">
+        <i class="ph-bold ph-sparkle text-black text-sm"></i>
+        <span>Instant 14-Day Free Access</span>
+      </div>
+
+      <!-- Centered Cabinet Grotesk Mega Headline -->
+      <h2 class="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl text-black tracking-tighter leading-[0.98] mb-6 max-w-4xl mx-auto">
+        READY TO REVOLUTIONIZE YOUR CONTENT VELOCITY?
+      </h2>
+
+      <p class="font-sans font-medium text-lg sm:text-xl text-black/85 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Join over 2,400+ world-class founders, creators, and growth teams who generate exceptional content in minutes.
+      </p>
+
+      <!-- Email Capture Form with 2px Border & Hard Shadow -->
+      <form onsubmit="handleCtaSubmit(event)" class="max-w-xl mx-auto flex flex-col sm:flex-row gap-3 items-stretch justify-center mb-6">
+        <div class="relative flex-1">
+          <i class="ph-bold ph-envelope absolute left-4 top-1/2 -translate-y-1/2 text-black/50 text-xl"></i>
+          <input 
+            type="email" 
+            id="ctaEmailInput" 
+            required 
+            placeholder="Enter your work email address..." 
+            class="w-full h-14 pl-12 pr-4 bg-white border-2 border-black rounded-xl font-sans font-medium text-black placeholder-black/50 focus:outline-none shadow-hard-md"
+          >
+        </div>
+        <button type="submit" class="btn-push-primary h-14 px-8 rounded-xl font-heading font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-2 shrink-0">
+          <span>Claim Trial</span>
+          <i class="ph-bold ph-arrow-right text-brandYellow text-lg"></i>
+        </button>
+      </form>
+
+      <!-- Micro Guarantees -->
+      <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-bold uppercase tracking-wider text-black/80">
+        <span>✓ Instant Setup</span>
+        <span>•</span>
+        <span>✓ Cancel Anytime</span>
+        <span>•</span>
+        <span>✓ No Card Required</span>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-brandCharcoal text-white pt-20 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b-2 border-brandDarkGray">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="#" class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-brandYellow border-2 border-black flex items-center justify-center shadow-hard-sm">
+              <i class="ph-bold ph-lightning text-brandCharcoal text-xl"></i>
+            </div>
+            <span class="font-heading font-extrabold text-2xl tracking-tighter uppercase text-white">KINETIC<span class="text-brandYellow">.AI</span></span>
+          </a>
+          <p class="font-sans font-medium text-brandSage text-sm max-w-sm leading-relaxed">
+            The high-velocity Neo-Brutalist SaaS platform built to help high-growth operators automate world-class content workflows.
+          </p>
+
+          <!-- Social Icon Buttons: 10x10 (#272727) squares turning Yellow/Black on hover -->
+          <div class="flex items-center gap-3 pt-2">
+            <!-- Twitter/X -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X Twitter" class="w-10 h-10 bg-brandDarkGray border-2 border-gray-600 rounded-lg flex items-center justify-center text-white hover:bg-brandYellow hover:text-black hover:border-black transition-colors shadow-hard-sm">
+              <i class="ph-bold ph-x-logo text-lg"></i>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 bg-brandDarkGray border-2 border-gray-600 rounded-lg flex items-center justify-center text-white hover:bg-brandYellow hover:text-black hover:border-black transition-colors shadow-hard-sm">
+              <i class="ph-bold ph-linkedin-logo text-lg"></i>
+            </a>
+            <!-- GitHub -->
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-10 h-10 bg-brandDarkGray border-2 border-gray-600 rounded-lg flex items-center justify-center text-white hover:bg-brandYellow hover:text-black hover:border-black transition-colors shadow-hard-sm">
+              <i class="ph-bold ph-github-logo text-lg"></i>
+            </a>
+            <!-- Discord -->
+            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="w-10 h-10 bg-brandDarkGray border-2 border-gray-600 rounded-lg flex items-center justify-center text-white hover:bg-brandYellow hover:text-black hover:border-black transition-colors shadow-hard-sm">
+              <i class="ph-bold ph-discord-logo text-lg"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Product Links -->
+        <div class="space-y-3">
+          <span class="text-xs font-mono font-bold uppercase tracking-widest text-brandYellow block">Product</span>
+          <ul class="space-y-2.5 font-sans font-medium text-sm text-brandSage">
+            <li><a href="#features" class="hover:text-white transition-colors">Neural Tone Memory</a></li>
+            <li><a href="#features" class="hover:text-white transition-colors">SERP Radar</a></li>
+            <li><a href="#features" class="hover:text-white transition-colors">Multi-Channel Waterfall</a></li>
+            <li><a href="#features" class="hover:text-white transition-colors">Headless API</a></li>
+            <li><a href="#workflow" class="hover:text-white transition-colors">Release Changelog</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Resources -->
+        <div class="space-y-3">
+          <span class="text-xs font-mono font-bold uppercase tracking-widest text-brandYellow block">Resources</span>
+          <ul class="space-y-2.5 font-sans font-medium text-sm text-brandSage">
+            <li><a href="#" class="hover:text-white transition-colors">SEO Mastery Playbook</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Content Velocity Guide</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Developer Docs & SDK</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">API Status: Operational</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Customer Case Studies</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal & Security -->
+        <div class="space-y-3">
+          <span class="text-xs font-mono font-bold uppercase tracking-widest text-brandYellow block">Trust & Legal</span>
+          <ul class="space-y-2.5 font-sans font-medium text-sm text-brandSage">
+            <li><a href="#" class="hover:text-white transition-colors">SOC2 Type II Report</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Zero-Training Policy</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Privacy Agreement</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">GDPR & DPA Compliant</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-brandSage">
+        <div>
+          © 2026 KINETIC OS INC. ALL RIGHTS RESERVED. // ZERO FLUFF ENGINE.
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="flex items-center gap-1.5 text-white">
+            <span class="w-2 h-2 rounded-full bg-brandYellow animate-ping"></span>
+            ALL SYSTEMS NORMAL
+          </span>
+          <a href="#" class="hover:underline">SECURITY DISCLOSURE</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Free Trial Modal Dialog -->
+  <div id="trialModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="relative bg-brandYellow border-2 border-black rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-hard-xl">
+      
+      <!-- Close Button -->
+      <button onclick="closeTrialModal()" class="absolute top-4 right-4 w-9 h-9 bg-white border-2 border-black rounded-full flex items-center justify-center font-bold shadow-hard-sm hover:translate-x-0.5 transition-transform">
+        <i class="ph-bold ph-x text-lg"></i>
+      </button>
+
+      <div class="inline-block px-3 py-1 bg-white border-2 border-black rounded-full font-heading font-extrabold text-xs uppercase mb-3 shadow-hard-sm">
+        14-Day Free Pass
+      </div>
+
+      <h3 class="font-heading font-extrabold text-3xl text-black tracking-tight mb-2">
+        START FREE TRIAL
+      </h3>
+      <p class="font-sans font-medium text-black/80 text-sm mb-6">
+        No credit card required. Full access to AI Tone Memory, SERP Radar, and 100,000 words.
+      </p>
+
+      <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-heading font-extrabold uppercase tracking-wider text-black mb-1">Your Name</label>
+          <input type="text" required placeholder="Alex Miller" class="w-full px-4 py-3 bg-white border-2 border-black rounded-xl font-sans text-sm focus:outline-none shadow-hard-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-heading font-extrabold uppercase tracking-wider text-black mb-1">Work Email</label>
+          <input type="email" required placeholder="alex@company.com" class="w-full px-4 py-3 bg-white border-2 border-black rounded-xl font-sans text-sm focus:outline-none shadow-hard-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-heading font-extrabold uppercase tracking-wider text-black mb-1">Primary Goal</label>
+          <select class="w-full px-4 py-3 bg-white border-2 border-black rounded-xl font-sans text-sm focus:outline-none shadow-hard-sm font-medium">
+            <option>Scale Technical SEO Content</option>
+            <option>Automate Multi-Channel Socials</option>
+            <option>Internal Product Marketing</option>
+            <option>Agency Client Deliverables</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full btn-push-primary py-3.5 rounded-xl font-heading font-extrabold text-base uppercase tracking-wider flex items-center justify-center gap-2 mt-4">
+          <span>Create Instant Workspace</span>
+          <i class="ph-bold ph-arrow-right text-brandYellow"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Interactive Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-brandCharcoal text-white border-2 border-black p-4 rounded-xl shadow-hard-lg flex items-center gap-3 transform translate-y-32 transition-transform duration-300">
+    <div class="w-8 h-8 rounded-full bg-brandYellow text-black flex items-center justify-center font-bold">
+      <i class="ph-bold ph-check text-lg"></i>
+    </div>
+    <div>
+      <h5 id="toastTitle" class="font-heading font-bold text-sm text-white">Access Granted!</h5>
+      <p id="toastMessage" class="text-xs font-sans text-brandSage">Workspace initialized successfully.</p>
+    </div>
+  </div>
+
+  <script>
+    // Mobile Drawer Navigation Toggle
+    function toggleMobileNav() {
+      const drawer = document.getElementById('mobileDrawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    // Modal Control
+    function openTrialModal() {
+      document.getElementById('trialModal').classList.remove('hidden');
+    }
+    function closeTrialModal() {
+      document.getElementById('trialModal').classList.add('hidden');
+    }
+
+    // Close modal on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeTrialModal();
+    });
+
+    // Form Submissions & Toast
+    function showToast(title, message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastMessage').textContent = message;
+      toast.classList.remove('translate-y-32');
+      setTimeout(() => {
+        toast.classList.add('translate-y-32');
+      }, 4000);
+    }
+
+    function handleCtaSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('ctaEmailInput').value;
+      showToast('14-Day Free Pass Sent!', `Check inbox for ${email}`);
+      document.getElementById('ctaEmailInput').value = '';
+    }
+
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      closeTrialModal();
+      showToast('Welcome to KINETIC!', 'Workspace link dispatched to your email.');
+    }
+
+    // Interactive Browser Mockup Simulation
+    let isSurged = false;
+    const prompts = [
+      'prompt: "generate 10 b2b hooks on devtool scale"',
+      'prompt: "cascade 3,000w article into 12 linkedin posts"',
+      'prompt: "extract topical cluster for devops monitoring"',
+      'prompt: "rewrite landing page hero with 8.9% conv. score"'
+    ];
+    let promptIndex = 0;
+
+    function toggleDashboardMetric() {
+      isSurged = !isSurged;
+      const copyEl = document.getElementById('metricCopy');
+      const hoursEl = document.getElementById('metricHours');
+      const convEl = document.getElementById('metricConv');
+      const surgeBar = document.getElementById('surgeBar');
+      const promptEl = document.getElementById('promptText');
+      const btn = document.getElementById('toggleDataBtn');
+
+      if (isSurged) {
+        copyEl.textContent = '289,450';
+        hoursEl.textContent = '2,480 hrs';
+        convEl.textContent = '14.2%';
+        surgeBar.style.height = '100%';
+        surgeBar.classList.remove('bg-brandCharcoal');
+        surgeBar.classList.add('bg-brandYellow');
+        btn.textContent = 'Reset Data';
+        btn.classList.add('bg-white');
+      } else {
+        copyEl.textContent = '142,890';
+        hoursEl.textContent = '1,240 hrs';
+        convEl.textContent = '8.94%';
+        surgeBar.style.height = '96%';
+        surgeBar.classList.remove('bg-brandYellow');
+        surgeBar.classList.add('bg-brandCharcoal');
+        btn.textContent = 'Simulate Surge';
+        btn.classList.remove('bg-white');
+      }
+
+      // Cycle prompt
+      promptIndex = (promptIndex + 1) % prompts.length;
+      promptEl.textContent = prompts[promptIndex];
+    }
+  </script>
+</body>
+</html>
